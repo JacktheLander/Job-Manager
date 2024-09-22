@@ -32,6 +32,20 @@
     }
     h2 {
       color: #03adfc;
+      letter-spacing: 1px;
+      transition: letter-spacing 0.3s ease, text-shadow 0.3s ease;
+    }
+    h1:hover{
+        transition: transform 0.2s ease-in-out; /* Smooth animation */
+        transform: scale(1.1); /* Makes the text bigger */
+    }
+    p:hover{
+        transition: transform 0.2s ease-in-out; /* Smooth animation */
+        transform: scale(1.02); /* Makes the text bigger */
+    }
+    h2:hover{
+        text-shadow: 2px 2px 2px #9ee0ff;
+        letter-spacing: 2px;
     }
     ul {
       list-style: none;
@@ -42,6 +56,11 @@
       background-color: #f4f4f4;
       margin-bottom: 5px;
       border-radius: 5px;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.3); /* Subtle glow */
+      transition: background-color 0.3s ease; /* Smooth transition */
+    }
+    ul li:hover {
+      background-color: #fff; /* color on hover */
     }
     .experience-entry {
       display: flex;
