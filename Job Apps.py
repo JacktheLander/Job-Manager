@@ -188,13 +188,12 @@ class ModernCSVViewerApp:
                 comp.append(Input['Company'].iloc[i])
                 status.append(Input['Status'].iloc[i])
                 loc.append(Input['Location'].iloc[i])
-                count += 1
-                data = {"Company": comp, "Position": pos, "Location": loc,
-                        "Status": status}  # Writes to the output file should be done outside of loop
-                df = pd.DataFrame(data)
-                df.to_csv(Output_path, index=False)
-                print("Loading")
-                self.load_csv()
+
+            data = {"Company": comp, "Position": pos, "Location": loc, "Status": status}  # Writes to the output file should be done outside of loop
+            df = pd.DataFrame(data)
+            df.to_csv(Output_path, index=False)
+            print("Loading")
+            self.load_csv()
         else:
             messagebox.showwarning("No file selected", "Please select a CSV file to upload.")
         return
@@ -347,14 +346,15 @@ class ModernCSVViewerApp:
         print("Saves")
         job = Data["Position"].iloc[i] + " at " + Data["Company"].iloc[i]
         if exist:
-            notes["Notes"].iloc[row] = str(notes_text.get("1.0", "end-1c"))
+            notes.loc[row, "Notes"] = str(notes_text.get("1.0", "end-1c"))
         else:
             new_row = {col: '' for col in notes.columns}  # Create an empty row with the same columns
-            new_row["Job"] = job  # Set the new line name
+            new_row["Job"] = job  # Set the new job value
             text = notes_text.get("1.0", "end-1c")
             if text:
                 new_row["Notes"] = text
-                notes = notes.append(new_row, ignore_index=True)
+                new_row_df = pd.DataFrame([new_row])  # Convert the new row to a DataFrame
+                notes = pd.concat([notes, new_row_df], ignore_index=True)  # Concatenate with the existing DataFrame
 
         # Write the updated DataFrame back to the CSV file
         notes.to_csv(Notes_path, index=False)
@@ -397,24 +397,16 @@ class ModernCSVViewerApp:
         return
 
     def export_csv(self):
-        # Get the user's desktop directory
-        desktop_dir = os.path.join(os.path.expanduser('~'), 'Desktop')
-
-        # Define the folder path for "Job Applications" on the Desktop
-        job_applications_folder = os.path.join(desktop_dir, 'Job Applications')
-
-        # Ensure the "Job Applications" folder exists (create it if necessary)
-        if not os.path.exists(job_applications_folder):
-            os.makedirs(job_applications_folder)
-            print(f"Created folder: {job_applications_folder}")
 
         # Get the current date formatted as YYYY-MM-DD
         current_date = datetime.now().strftime("%Y-%m-%d")
         # Create the new file name with the date
         new_file_name = f"JobList_{current_date}.csv"
         # Define the destination path in the "Job Applications" folder
-        destination_path = os.path.join(job_applications_folder, new_file_name)
+        downloads_path = os.path.join(os.path.expanduser('~'), 'Downloads')
+        destination_path = os.path.join(downloads_path, new_file_name)
         shutil.copy(Data_path, destination_path)
+        messagebox.showinfo("Downloaded", destination_path)
         return
 
     def clear(self):
@@ -445,6 +437,7 @@ class ModernCSVViewerApp:
         if response:  # True if "OK" is pressed
             self.export_csv()
             delete()
+            self.display_csv(Data_path)
         else:
             print("Clear Cache was canceled.")
         return
