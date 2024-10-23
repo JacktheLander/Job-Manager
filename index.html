@@ -24,6 +24,7 @@
     }
     header h1 {
       margin: 0;
+      transition: transform 0.2s ease-in-out; /* Smooth animation */
     }
     section {
       margin: 20px;
@@ -38,11 +39,12 @@
       transition: letter-spacing 0.3s ease, text-shadow 0.3s ease;
     }
     h1:hover{
-        transition: transform 0.2s ease-in-out; /* Smooth animation */
         transform: scale(1.1); /* Makes the text bigger */
     }
-    p:hover{
+    p{
         transition: transform 0.2s ease-in-out; /* Smooth animation */
+    }
+    p:hover{
         transform: scale(1.02); /* Makes the text bigger */
     }
     h2:hover{
