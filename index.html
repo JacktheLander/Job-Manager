@@ -108,6 +108,16 @@
     .social-icons img:hover {
       transform: scale(1.1); /* Slight zoom effect on hover */
     }
+    .about-image {
+      width: 150px; /* Adjust size as needed */
+      height: auto;
+      margin-right: 20px; /* Space between image and text */
+      border-radius: 8px; /* Optional: rounded corners */
+    }
+    
+    .about-text {
+      max-width: 600px; /* Adjust to limit the width of the text if desired */
+    }
     @media screen and (min-width: 768px) {
       .container {
         max-width: 800px;
@@ -134,13 +144,19 @@
     <!-- About Section -->
     <section>
       <h2>About Me</h2>
-      <p>
-        I had the privilege of growing up abroad in London where I was exposed to a unique variety of cultures and ideas that have shaped me into the driven, inspired person that I am today. Since then, I have had the opportunity to graduate from a boarding school and have work experience in a range of industries, elevating my sense of individuality and versatility.
-      </p>
-      <p>
-        My greatest interests are in computer vision, augmented reality, and artificial general intelligence. I chose this path to follow my passion for evolving technological development, aspiring to design and innovate many impactful products of my own.
-      </p>
+      <div class="container">
+        <img src="Me.jpg" alt="Me" class="about-image">
+        <div class="about-text">
+          <p>
+            I had the privilege of growing up abroad in London where I was exposed to a unique variety of cultures and ideas that have shaped me into the driven, inspired person that I am today. Since then, I have had the opportunity to graduate from a boarding school and have work experience in a range of industries, elevating my sense of individuality and versatility.
+          </p>
+          <p>
+            My greatest interests are in computer vision, augmented reality, and artificial general intelligence. I chose this path to follow my passion for evolving technological development, aspiring to design and innovate many impactful products of my own.
+          </p>
+        </div>
+      </div>
     </section>
+
 
     <!-- Education Section -->
     <section>
