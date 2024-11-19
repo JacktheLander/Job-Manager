@@ -1,5 +1,5 @@
 import os
-import csv                                                            #### Ctrl-f "!INSERT" to add your custom info
+import csv                                                            #### Ctrl-f "!INSERT" to add your custom info -> for templates using {company} or {position} will autofill for the role
 import re                                                                ### Install pyinstaller package and in Python Console type: pyinstaller Build.spec
 import pandas as pd                                                           ## This will rebuild the application with your changes in the project dist folder (Make sure to download Build.spec and add it to your project first)
 import customtkinter as ctk                                                        # Move the executable to your desktop to run and use the application with your changes
