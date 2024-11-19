@@ -1,1 +1,1 @@
-This can be used to manage your job applications. Rebuild the project with the instructions in Job Apps.py to customize cover letter automation. You can also download the generic version of this app from github versions.
+This can be used to manage your job applications. Rebuild the project with the instructions in Job Apps.py to customize cover letter automation. You can also download the generic version of this app from the github repo releases.
