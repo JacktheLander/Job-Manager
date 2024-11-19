@@ -1,8 +1,15 @@
+# Job App, Open Source by Jack Landers #   --- To customize follow these steps:
+                                                    #### Ctrl-f "!INSERT" to add your custom info -> for templates using {company} or {position} will autofill for the role
+                                                        ### 1. In Python Console enter: pip install pyinstaller    2. Then enter: pyinstaller Build.spec
+                                                        ### (Make sure to download Build.spec and add it to your project first)
+                                                            ## This will rebuild the application with your changes in the project dist folder
+                                                                # Move the executable to your desktop to run and use the application with your changes
+
 import os
-import csv                                                            #### Ctrl-f "!INSERT" to add your custom info -> for templates using {company} or {position} will autofill for the role
-import re                                                                ### Install pyinstaller package and in Python Console type: pyinstaller Build.spec
-import pandas as pd                                                           ## This will rebuild the application with your changes in the project dist folder (Make sure to download Build.spec and add it to your project first)
-import customtkinter as ctk                                                        # Move the executable to your desktop to run and use the application with your changes
+import csv 
+import re
+import pandas as pd                                                            
+import customtkinter as ctk                                                        
 import tkinter as tk
 from tkinter import filedialog, messagebox, Toplevel
 import os.path
