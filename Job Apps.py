@@ -1,13 +1,14 @@
 import os
-import csv
-import re
-import pandas as pd
-import customtkinter as ctk
+import csv                                                            #### Ctrl-f "!INSERT" to add your custom info
+import re                                                                ### Install pyinstaller package and in Python Console type: pyinstaller Build.spec
+import pandas as pd                                                           ## This will rebuild the application with your changes in the project dist folder (Make sure to download Build.spec and add it to your project first)
+import customtkinter as ctk                                                        # Move the executable to your desktop to run and use the application with your changes
 import tkinter as tk
 from tkinter import filedialog, messagebox, Toplevel
 import os.path
 import shutil
 from datetime import datetime
+from fpdf import FPDF
 
 # Make a directory for the app
 appdata = os.getenv('APPDATA')
@@ -104,7 +105,6 @@ class ModernCSVViewerApp:
             df = pd.DataFrame(data)
             df.to_csv(Output_path, index=False)
             self.load_csv()                     # Adds output to data
-            self.display_csv(Data_path)
             return
 
         def minimize():
@@ -166,7 +166,7 @@ class ModernCSVViewerApp:
 
                 # Save the combined DataFrame back to the second CSV file
                 combined_df.to_csv(Data_path, index=False)
-                self.display_csv(Data_path)
+                self.sort("Status")
 
             except Exception as e:
                 messagebox.showerror("Error", f"Failed to load CSV file: {e}")
@@ -281,10 +281,12 @@ class ModernCSVViewerApp:
 
     def open_more_info_window(self, i):
         Data = pd.read_csv(Data_path)
+        position = Data["Position"].iloc[i]
+        company = Data["Company"].iloc[i]
 
         # Create the new window
         new_window = ctk.CTkToplevel(root)
-        new_window.title(f"Notes for " + Data["Position"].iloc[i]+" at " + Data["Company"].iloc[i])
+        new_window.title(f"Notes for " + position + " at " + company)
         new_window.geometry("900x400")
         new_window.configure(fg_color="white")
 
@@ -301,6 +303,29 @@ class ModernCSVViewerApp:
 
         notes_text = ctk.CTkTextbox(notes_frame)
         notes_text.pack(fill="both", expand=True, padx=10, pady=5)
+
+        # Add cover letter buttons
+        cover_label = ctk.CTkLabel(new_window, text="Cover Letters", text_color="black")
+        cover_label.pack(side="top", anchor="w", padx=10)
+
+        swe_button = ctk.CTkButton(new_window, text="Software Engineer", text_color="white")
+        swe_button.configure(
+            command=lambda company=company, position=position: self.autofill_cover_letter(company, position, "swe"))
+        swe_button.pack(side="top", anchor="w", pady=10, padx=10)
+
+        ml_button = ctk.CTkButton(new_window, text="Machine Learning", text_color="white")
+        ml_button.configure(
+            command=lambda company=company, position=position: self.autofill_cover_letter(company, position, "ml"))
+        ml_button.pack(side="top", anchor="w", pady=10, padx=10)
+
+        computer_vision_button = ctk.CTkButton(new_window, text="Computer Vision", text_color="white")
+        computer_vision_button.configure(command=lambda company=company, position=position: self.autofill_cover_letter(company, position, "cv"))
+        computer_vision_button.pack(side="top", anchor="w", pady=10, padx=10)
+
+        pm_button = ctk.CTkButton(new_window, text="Embedded Systems", text_color="white")
+        pm_button.configure(
+            command=lambda company=company, position=position: self.autofill_cover_letter(company, position, "embedded"))
+        pm_button.pack(side="top", anchor="w", pady=10, padx=10)
 
         notes = pd.read_csv(Notes_path)
         exist = False
@@ -380,12 +405,12 @@ class ModernCSVViewerApp:
             status_order = {"Not Applied": 0, "Submitted": 1, "Responded": 2, "DNA": 3, "Rejected": 4}
             # Add a column with the custom order values
             data['status_order'] = data['Status'].map(status_order)
-            sortedvals = data.sort_values(by='status_order')
+            sortedvals = data.sort_values(by=['status_order', "Company"])
             sortedvals = sortedvals.drop(columns=['status_order'])
             sortedvals.to_csv(Sorted_path, index=False)
 
         elif option == "Location":
-            data['state'] = data['Location'].apply(lambda x: x.split()[-1] if isinstance(x, str) else x)
+            data['state'] = data['Location'].apply(lambda x: (x.split()[-1] if isinstance(x, str) else x, x.split()[0] if isinstance(x, str) else x))
             sortedvals = data.sort_values(by='state')
             sortedvals = sortedvals.drop(columns=['state'])
             sortedvals.to_csv(Sorted_path, index=False)
@@ -403,9 +428,67 @@ class ModernCSVViewerApp:
         # Create the new file name with the date
         new_file_name = f"JobList_{current_date}.csv"
         # Define the destination path in the "Job Applications" folder
-        downloads_path = os.path.join(os.path.expanduser('~'), 'Downloads')
-        destination_path = os.path.join(downloads_path, new_file_name)
+        downloads_folder = os.path.join(os.path.expanduser("~"), "Downloads")
+        destination_path = os.path.join(downloads_folder, new_file_name)
         shutil.copy(Data_path, destination_path)
+        # Create the new file name with the date
+        new_file_name = f"JobNotes_{current_date}.csv"
+        destination_path = os.path.join(downloads_folder, new_file_name)
+        shutil.copy(Notes_path, destination_path)
+        messagebox.showinfo("Downloaded", destination_path)
+        return
+
+
+    def autofill_cover_letter(self, company, position, type):
+        # Cover letter template
+        computer_vision_template = """
+!INSERT COVER LETTER TEMPLATE HERE
+            """
+        swe_template = """
+!INSERT COVER LETTER TEMPLATE HERE
+        """
+        ml_template = """
+!INSERT COVER LETTER TEMPLATE HERE
+"""
+        embedded_template = """
+!INSERT COVER LETTER TEMPLATE HERE
+"""
+        # Replace placeholders with input values
+        if type == "cv":
+            template = computer_vision_template
+        elif type == "swe":
+            template = swe_template
+        elif type == "ml":
+            template = ml_template
+        elif type == "embedded":
+            template = embedded_template
+        else:
+            return
+
+        cover_letter = template.format(
+            company=company,
+            position=position,
+        )
+
+        # Create a PDF using FPDF
+        pdf = FPDF()
+        pdf.add_page()
+
+        # Add header with your information aligned to the right
+        pdf.set_font("Arial", size=12)
+        pdf.cell(0, 10, "!INSERT YOUR NAME HERE", ln=True, align='R')
+        pdf.cell(0, 10, "!INSERT YOUR EMAIL HERE", ln=True, align='R')
+        pdf.cell(0, 10, "!INSERT YOUR PHONE NUMBER HERE", ln=True, align='R')
+
+        # Add the rest of the cover letter with line spacing set to 1.15 (adjusted by setting a slightly larger cell height)
+        pdf.set_font("Arial", size=12)
+        line_height = pdf.font_size * 1.15  # Set line height to 1.15 times the font size
+        pdf.multi_cell(0, line_height, cover_letter)
+
+        # Save the PDF
+        downloads_folder = os.path.join(os.path.expanduser("~"), "Downloads")
+        destination_path = os.path.join(downloads_folder, f"!INSERT_YOUR_NAME_HERE_Cover_Letter_for_{company}.pdf")
+        pdf.output(destination_path)
         messagebox.showinfo("Downloaded", destination_path)
         return
 
@@ -413,7 +496,6 @@ class ModernCSVViewerApp:
         def delete():
             os.remove(Data_path)       ### Deletes cache
             os.remove(Output_path)
-            os.remove(Notes_path)
             os.remove(Sorted_path)
 
             if not os.path.isfile(Sorted_path):
