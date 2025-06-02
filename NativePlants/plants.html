@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Native American Flower Uses</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- AOS: Scroll Animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Lightbox2: Image Zoom -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.min.js"></script>
+    <script>
+      tsParticles.load("tsparticles", {
+        fullScreen: { enable: false },
+        particles: {
+          number: { value: 40 },
+          color: { value: "#FFB6C1" },
+          shape: { type: "circle" },
+          opacity: { value: 0.4 },
+          size: { value: 3 },
+          move: {
+            enable: true,
+            speed: 1,
+            direction: "bottom",
+            outModes: "out"
+          }
+        },
+        background: { color: "transparent" }
+      });
+    </script>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #fdfaf6;
+      padding: 1rem;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    #tsparticles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    h1 {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1rem;
+      margin: 2rem auto;
+      transition: transform 0.2s ease;
+      max-width: 500px;
+    }
+
+    .flower-img {
+      width: 100%;
+      border-radius: 12px;
+      height: 200px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .flower-name {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-top: 0.8rem;
+    }
+
+    .flower-description {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Particles background -->
+  <div id="tsparticles"></div>
+
+  <h1 data-aos="fade-down">Flower Uses in Native American Culture</h1>
+
+  <div class="card" data-aos="fade-up">
+    <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY2U_K8aBzf4hzQNy8Y8Vzi_PPkPJP1FffYae4rzud_0GiscL5KBdxFvM30-Vujfmmmy9zjVzwWwtgzhcedGksKQ" data-lightbox="flowers" data-title="Echinacea - used for infection and immunity">
+      <img class="flower-img" src="https://hoffmannursery.com/assets/files/images/Echinacea-purpurea-03.jpg" alt="Echinacea">
+    </a>
+    <div class="flower-name">Echinacea</div>
+    <div class="flower-description">
+      Used by the Lakota and Cheyenne for treating infections and wounds. Known for its immune-boosting properties.
+    </div>
+  </div>
+
+  <div class="card" data-aos="fade-up" data-aos-delay="100">
+    <a href="https://upload.wikimedia.org/wikipedia/commons/3/39/Yucca_filamentosa_flower.jpg" data-lightbox="flowers" data-title="Yucca - used for soap and food">
+      <img class="flower-img" src="https://m.media-amazon.com/images/I/71ZtAExP+JL.jpg" alt="Yucca">
+    </a>
+    <div class="flower-name">Yucca</div>
+    <div class="flower-description">
+      The Navajo used Yucca root for shampoo and soap, and its flowers were consumed as food and medicine.
+    </div>
+  </div>
+
+  <div class="card" data-aos="fade-up" data-aos-delay="200">
+    <a href="https://upload.wikimedia.org/wikipedia/commons/4/44/Papaver_rhoeas.jpg" data-lightbox="flowers" data-title="Wild Poppy - used for calming and pain relief">
+      <img class="flower-img" src="https://cdn11.bigcommerce.com/s-5mvrqhbm/images/stencil/1280x1280/products/3232/232040/corn_poppy__39185.1746107939.JPG?c=2" alt="Poppy">
+    </a>
+    <div class="flower-name">Wild Poppy</div>
+    <div class="flower-description">
+      Used for calming effects and pain relief. Some tribes infused poppy flowers for teas.
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <!-- AOS Scroll Animation -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000, once: true });</script>
+
+  <!-- Vanilla Tilt for 3D Card Hover -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+  <script>
+    VanillaTilt.init(document.querySelectorAll(".card"), {
+      max: 10,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.2
+    });
+  </script>
+
+  <!-- Lightbox Image Zoom -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+  <!-- tsparticles: Background Particles -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
+  <script>
+    tsParticles.load("tsparticles", {
+      fullScreen: { enable: false },
+      particles: {
+        number: { value: 30 },
+        size: { value: 5 },
+        color: { value: "#ffaadd" },
+        shape: { type: "circle" },
+        opacity: { value: 0.4 },
+        move: {
+          enable: true,
+          speed: 0.6,
+          direction: "bottom",
+          straight: false
+        }
+      },
+      background: { color: "transparent" }
+    });
+  </script>
+
+</body>
+</html>
