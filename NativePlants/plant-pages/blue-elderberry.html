@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Elderberry</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Top Image with Text Overlay */
+        .image-header {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .image-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(70%);
+        }
+
+        .image-header .text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+        }
+
+        .image-header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .image-header h2, .image-header h3 {
+            margin: 5px 0;
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        .icon-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .icon-row img {
+            width: 30px;
+            height: 30px;
+            background: rgba(255,255,255);
+            border-radius: 30%;
+            padding: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+
+        /* Main Content Sections */
+        .content-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 10px;
+        }
+
+        .description, .native-uses {
+            flex: 1 1 300px;
+            max-width: 45%;
+            margin: 10px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Make headers centered for both sections */
+        .description h4, .native-uses h4 {
+            margin-top: 0;
+            color: #006400;
+            text-align: center;
+        }
+
+        /* Icon Row under Native Uses Header */
+        .icon-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .icon-row img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Responsive: Stack on small screens */
+        @media (max-width: 768px) {
+            .content-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            .description, .native-uses {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="image-header">
+        <img src="https://jacklanders.site/NativePlants/plant-images/Blue_Elderberry.jpg" alt="Blue Elderberry">
+        <div class="text-overlay">
+            <h1>Blue Elderberry</h1>
+            <h2>Sambucus Mexicana</h2>
+            <h3>Tapio</h3>
+            <div class="icon-row">
+<img src="https://jacklanders.site/NativePlants/plant-icons/Medicine.png" alt="Medicine icon">
+<img src="https://jacklanders.site/NativePlants/plant-icons/Tech.png" alt="Tech icon">
+<img src="https://jacklanders.site/NativePlants/plant-icons/Basketry.png" alt="Basketry icon">
+<img src="https://jacklanders.site/NativePlants/plant-icons/Food.png" alt="Food icon">
+<img src="https://jacklanders.site/NativePlants/plant-icons/Berries.png" alt="Berries icon">
+</div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="description">
+            <h4>Description</h4>
+            <p>Tapio is a short lived shrub or small tree lacking a main trunk, and usually grows 6.5 to 13 feet tall, but sometimes reaches 20 feet. The stems and young twigs are soft and pithy but, the wood is quite hard with grayish bark or thin, dark brown irregularly furrowed and ridged bark. The tíwwišikma (flowers) are more or less flat-topped, with loškowiš (white) to laskaawiš (whitish or cream) colored petals. The leaves have miššur (five) to tellektiš (nine) serrate leaflets. Tapao prefers moist, well-drained sunny sites. Wirakmen (Birds) and other animals love eating elderberries. Its soft-woody stems and leaves are also eaten by tootikma (deer), chipmunks, weerinikma (rabbits), ‘ehikma (squirrels), yoššokma (mice), hirehikma (rats) and livestock.</p>
+        </div>
+
+        <div class="native-uses">
+            <div class="native-uses-header">
+                <h4>Traditional Native Uses</h4>
+            </div>
+            <p>Food: Only the blue or purple berries of elderberry are edible. They were eaten fresh, dried, or frozen. Ripe elderberries were found throughout the tawwa ’etwen (summer) and ’amne ’etwen (fall) seasons. The active alkaloids in elderberry plants are hydrocyanic acid and sambucine. Both alkaloids will cause nausea so care should be observed with this plant. Elderberries are high in vitamin C. The red berries of other species are toxic and should not be gathered. Medicine: Edible berries and flower were used for medicine. Instruments: Flutes and whistles were constructed by boring holes into stems hollowed out with hot sticks. Clapper sticks were made by hollowing out and splitting the stem and clapping the two halves against each other. Clapper sticks were used ceremonially in the round-house to accompany singing and dancing. Implements: Dyes from the berries were used for basketry. Elderberry branches were used to make the shaft of arrows. The pith of the stems was used as tinder, and the stem itself was employed as a twirling stick for starting the fire. *Fire drills were made from young shoots of elderberry. Toy: Hollowed-out elderberry stems were also made into squirt guns.  Cooked berries are edible, and can also be made into a juice or a tea. Flowers are edible and can also be made into a tea.</p>
+        </div>
+    </div>
+
+</body>
+</html>
