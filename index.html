@@ -10,7 +10,10 @@
   <title>Jack Landers</title>
   <style>
     html {
-      overflow-x: hidden; 
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
     }
     body {
       font-family: "Segoe UI", Arial, sans-serif;
@@ -41,6 +44,7 @@
       background-color: white;
       border-radius: 8px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      scroll-snap-align: center;
     }
     h2 {
       color: #03adfc;
