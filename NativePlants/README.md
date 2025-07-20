@@ -1,6 +1,6 @@
 ## What CreatePages.py Does
 
-This script is a simple static‑site generator that turns your tabular plant data into individual, styled HTML pages. Here’s a high‑level overview:
+This script is a static‑site generator that turns your tabular plant data extracted from a google doc into individual, styled HTML pages. Here’s a high‑level overview:
 
 ### 1. Load the Data
 - Reads a TSV file (`PlantContent.tsv`) into a Pandas DataFrame.  
