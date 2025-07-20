@@ -25,7 +25,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(70%);
         }
 
         .image-header .text-overlay {
@@ -48,17 +47,15 @@
             font-style: italic;
         }
 
-        .icon-row {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 10px;
+        .icon-bar {
+            background-color: #4D8798;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-
         .icon-row img {
             width: 30px;
             height: 30px;
-            background: rgba(255,255,255);
+            background: rgba(255,255,255, 1);
             border-radius: 30%;
             padding: 6px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.07);
@@ -87,7 +84,7 @@
         /* Make headers centered for both sections */
         .description h4, .native-uses h4 {
             margin-top: 0;
-            color: #006400;
+            color: #4D8798;
             text-align: center;
         }
 
@@ -95,15 +92,17 @@
         .icon-row {
             display: flex;
             justify-content: center;
+            margin-left: -530px;
             gap: 10px;
-            margin-bottom: 10px;
+            padding-left: 30px;
         }
-
-        .icon-row img {
-            width: 30px;
-            height: 30px;
+        
+        .speaker-button {
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
         }
-
         /* Responsive: Stack on small screens */
         @media (max-width: 768px) {
             .content-section {
@@ -117,18 +116,33 @@
     </style>
 </head>
 <body>
+    <audio id="myAudio" src="plant-pronunciations/Example.mp3"></audio>
 
+    <script>
+      function playAudio() {
+        const audio = document.getElementById("myAudio");
+        audio.currentTime = 0; // rewind to start
+        audio.play();
+      }
+    </script>
     <div class="image-header">
         <img src="https://jacklanders.site/NativePlants/plant-images/Common_Selfheal.jpg" alt="Common Selfheal">
         <div class="text-overlay">
             <h1>Common Selfheal</h1>
             <h2>Prunella vulgaris</h2>
-            <h3>Káana-k ’Iššeete</h3>
-            <div class="icon-row">
+            <h3>Káana-k ’Iššeete
+                <button class="speaker-button" onclick="playAudio()">
+                      🔊
+                </button>
+            </h3>
+        </div>
+    </div>
+    
+    <div class="icon-bar">
+        <div class="icon-row">
 <img src="https://jacklanders.site/NativePlants/plant-icons/Medicine.png" alt="Medicine icon">
 <img src="https://jacklanders.site/NativePlants/plant-icons/Food.png" alt="Food icon">
 </div>
-        </div>
     </div>
 
     <div class="content-section">
