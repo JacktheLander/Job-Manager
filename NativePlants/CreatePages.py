@@ -16,7 +16,7 @@ icon_types = ["Medicine", "Tech", "Basketry", "Food", "Berries"]
 
 icon_to_color = {
     "Medicine":  "#4D8798",   # Agave
-    "Tech":      "#A32035",   # blue
+    "Tech":      "#A32035",   # Santa Clara Red
     "Basketry":  "#D15C3B",   # Terracotta
     "Food":      "#7F5E9C",   # Wisteria
     "Berries":   "#B32551"    # Rose
