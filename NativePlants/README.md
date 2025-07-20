@@ -1,4 +1,4 @@
-## What This Script Does
+## What CreatePages.py Does
 
 This script is a simple static‑site generator that turns your tabular plant data into individual, styled HTML pages. Here’s a high‑level overview:
 
