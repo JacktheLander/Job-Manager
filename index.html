@@ -7,7 +7,7 @@
   <link rel="icon" href="astronaut (2).png" type="image/png">
   <link href='https://www.w3schools.com/w3css/5/w3.css' rel='stylesheet'>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <title>Jack Landers</title>
+  <title>Jack Landers - ML Engineer</title>
   <style>
     html {
       overflow-x: hidden;
@@ -20,112 +20,307 @@
       line-height: 1.25;
       margin: 0;
       padding: 0;
-      background-color: white;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0f3460 100%);
       color: #333;
       overflow-x: hidden;
       justify-content: center;
       align-items: center;
+      position: relative;
     }
+    
+    /* Neural Network Background */
+    #neural-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: 0.4;
+    }
+    
+    /* Particle Background */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    .particle {
+      position: absolute;
+      background: #03adfc;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: float 15s infinite ease-in-out;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      25% { transform: translateY(-100px) translateX(50px); }
+      50% { transform: translateY(-50px) translateX(-50px); }
+      75% { transform: translateY(-150px) translateX(100px); }
+    }
+    
     header {
-      background-color: #f4f4f4;
-      color: black;
-      padding: 20px;
+      background: rgba(15, 52, 96, 0.95);
+      backdrop-filter: blur(10px);
+      color: white;
+      padding: 40px 20px;
       width: 100%;
       text-align: center;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 30px rgba(3, 173, 252, 0.3);
+      position: relative;
+      z-index: 10;
+      border-bottom: 2px solid #03adfc;
     }
+    
     header h1 {
       margin: 0;
-      transition: transform 0.2s ease-in-out; 
+      font-size: 3em;
+      background: linear-gradient(45deg, #03adfc, #00ff88);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: glow 2s ease-in-out infinite alternate;
+      transition: transform 0.3s ease-in-out;
     }
+    
+    @keyframes glow {
+      from { filter: drop-shadow(0 0 20px rgba(3, 173, 252, 0.5)); }
+      to { filter: drop-shadow(0 0 40px rgba(0, 255, 136, 0.8)); }
+    }
+    
+    header p {
+      color: #9ee0ff;
+      font-size: 1.1em;
+      margin-top: 10px;
+    }
+    
+    .container {
+      position: relative;
+      z-index: 5;
+    }
+    
     section {
       margin: 30px;
-      padding: 3px 20px 20px 20px;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      padding: 25px 30px;
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(3, 173, 252, 0.2);
       scroll-snap-align: start;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(3, 173, 252, 0.1);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
     }
+    
+    section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(3, 173, 252, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    section:hover::before {
+      left: 100%;
+    }
+    
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(3, 173, 252, 0.4);
+    }
+    
     h2 {
       color: #03adfc;
-      letter-spacing: 0px;
-      transition: letter-spacing 0.3s ease, text-shadow 0.3s ease;
+      letter-spacing: 1px;
+      font-size: 2em;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
     }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #03adfc, #00ff88);
+      transition: width 0.4s ease;
+    }
+    
+    h2:hover::after {
+      width: 100%;
+    }
+    
     h1:hover{
-        transform: scale(1.1); 
+        transform: scale(1.05); 
     }
+    
     p{
         transition: transform 0.2s ease-in-out; 
     }
     p:hover{
-        transform: scale(1.02); 
+        transform: scale(1.01); 
     }
+    
     h2:hover{
-        text-shadow: 2px 2px 2px #9ee0ff;
-        letter-spacing: 1px;
+        text-shadow: 2px 2px 10px rgba(3, 173, 252, 0.5);
+        letter-spacing: 2px;
     }
+    
+    /* Interactive List Items */
     ul {
       list-style: none;
       padding: 0;
     }
+    
     ul li {
-      padding: 8px;
-      background-color: #f4f4f4;
-      margin-bottom: 5px;
-      border-radius: 5px;
-      box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-      transition: background-color 0.3s ease;
+      padding: 15px;
+      background: linear-gradient(135deg, #f4f4f4 0%, #e8f4ff 100%);
+      margin-bottom: 12px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border-left: 4px solid transparent;
     }
+    
+    ul li::before {
+      content: '▸';
+      position: absolute;
+      left: -30px;
+      color: #03adfc;
+      font-size: 1.5em;
+      transition: left 0.3s ease;
+    }
+    
+    ul li:hover::before {
+      left: 10px;
+    }
+    
     ul li a {
       text-decoration: none;
       display: block;
       height: 100%;
+      padding-left: 25px;
+      transition: padding-left 0.3s ease;
     }
+    
     ul li:hover {
-      background-color: #fff;
+      background: linear-gradient(135deg, #fff 0%, #e3f5ff 100%);
+      transform: translateX(10px);
+      box-shadow: 0 6px 25px rgba(3, 173, 252, 0.3);
+      border-left-color: #03adfc;
     }
+    
+    ul li:hover a {
+      padding-left: 35px;
+    }
+    
     ul li a:visited {
       color: #03adfc;
     }
+    
+    /* Paper Items with Preview */
+    .paper-item {
+      position: relative;
+      cursor: pointer;
+    }
+    
+    .paper-item::after {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #03adfc;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85em;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .paper-item:hover::after {
+      opacity: 1;
+    }
+    
     .experience-entry {
       display: flex;
       align-items: center;
       margin-bottom: 20px;
+      padding: 20px;
+      background: linear-gradient(135deg, rgba(3, 173, 252, 0.05) 0%, rgba(0, 255, 136, 0.05) 100%);
+      border-radius: 12px;
+      transition: all 0.4s ease;
     }
+    
+    .experience-entry:hover {
+      background: linear-gradient(135deg, rgba(3, 173, 252, 0.1) 0%, rgba(0, 255, 136, 0.1) 100%);
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(3, 173, 252, 0.2);
+    }
+    
     .experience-entry img {
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       margin-right: 20px;
       transition: transform 0.3s;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
     }
+    
     .experience-entry a {
       display: inline-block;
     }
+    
     .experience-entry img:hover {
-      transform: scale(1.1);
+      transform: scale(1.2);
     }
     
     footer {
       text-align: center;
-      padding: 20px;
-      background-color: #f4f4f4;
-      color: black;
+      padding: 30px;
+      background: rgba(15, 52, 96, 0.95);
+      backdrop-filter: blur(10px);
+      color: white;
       width: 100%;
       left: 0;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 -4px 30px rgba(3, 173, 252, 0.3);
+      position: relative;
+      z-index: 10;
+      border-top: 2px solid #03adfc;
     }
+    
     .social-icons a {
-      margin: 0 10px;
+      margin: 0 15px;
       display: inline-block;
     }
+    
     .social-icons img {
-      width: 40px;
-      height: 40px;
-      transition: transform 0.3s;
+      width: 50px;
+      height: 50px;
+      transition: all 0.3s;
+      filter: brightness(0) invert(1);
     }
+    
     .social-icons img:hover {
-      transform: scale(1.1);
+      transform: scale(1.3);
+      filter: brightness(0) invert(1) drop-shadow(0 0 15px #03adfc);
     }
+    
     .about-container {
       display: flex;
       align-items: center;
@@ -133,26 +328,113 @@
       margin: 0 auto;
       box-sizing: border-box;
     }
+    
     .about-image {
-      width: 150px;
+      width: 180px;
       height: auto;
-      margin-right: 20px;
-      border-radius: 8px;
-      transition: transform 0.4s ease;
+      margin-right: 30px;
+      border-radius: 15px;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 25px rgba(3, 173, 252, 0.3);
+      border: 3px solid #03adfc;
     }
+    
     .about-image:hover {
       transform: scale(1.1);
+      box-shadow: 0 12px 40px rgba(3, 173, 252, 0.5);
     }
+    
     .about-text {
       flex: 1;
     }
+    
+    /* PDF Modal */
+    .pdf-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      animation: fadeIn 0.3s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    .pdf-modal-content {
+      position: relative;
+      width: 90%;
+      height: 90%;
+      margin: 2% auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 50px rgba(3, 173, 252, 0.5);
+      overflow: hidden;
+    }
+    
+    .pdf-close {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 40px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      z-index: 1001;
+      transition: all 0.3s ease;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    }
+    
+    .pdf-close:hover {
+      color: #03adfc;
+      transform: scale(1.2) rotate(90deg);
+    }
+    
+    .pdf-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    /* Skills Visualization */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+    
+    .skill-badge {
+      background: linear-gradient(135deg, #03adfc 0%, #0080ff 100%);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 25px;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(3, 173, 252, 0.3);
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+    
+    .skill-badge:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(3, 173, 252, 0.5);
+      background: linear-gradient(135deg, #00ff88 0%, #03adfc 100%);
+    }
+    
     @media screen and (min-width: 768px) {
       .container {
-        max-width: 800px;
+        max-width: 900px;
         margin: 0 auto;
         box-sizing: border-box;
       }
     }
+    
     @media (max-width: 768px) {
       .container {
           width: 100%;
@@ -165,33 +447,138 @@
       .hide-on-mobile {
           display: none;
       }
+      header h1 {
+        font-size: 2em;
+      }
+      .pdf-modal-content {
+        width: 95%;
+        height: 85%;
+      }
     }
+    
     iframe, video{
       max-width: 100%;
       height: 100%;
     }
+    
     .calendar-button {
       display: inline-block;
-      padding: 12px 24px;
-      font-size: 16px;
+      padding: 15px 30px;
+      font-size: 18px;
       margin: 24px;
       font-weight: bold;
       color: white;
-      background-color: #03adfc;
+      background: linear-gradient(135deg, #03adfc 0%, #0080ff 100%);
       text-decoration: none;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 30px;
+      box-shadow: 0 6px 20px rgba(3, 173, 252, 0.4);
+      transition: all 0.3s ease;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .calendar-button::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+    
+    .calendar-button:hover::before {
+      width: 300px;
+      height: 300px;
     }
 
     .calendar-button:hover {
       transform: scale(1.1);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 30px rgba(3, 173, 252, 0.6);
+    }
+    
+    /* Loading Animation */
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0f3460 100%);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    
+    .loading-text {
+      color: #03adfc;
+      font-size: 2em;
+      font-family: 'Courier New', monospace;
+      margin-bottom: 20px;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    .loading-bar {
+      width: 300px;
+      height: 4px;
+      background: rgba(3, 173, 252, 0.2);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    
+    .loading-progress {
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, #03adfc, #00ff88);
+      animation: loading 2s ease-in-out forwards;
+    }
+    
+    @keyframes loading {
+      to { width: 100%; }
+    }
+    
+    /* Scroll Progress Bar */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #03adfc, #00ff88);
+      width: 0%;
+      z-index: 10000;
+      transition: width 0.1s ease;
+      box-shadow: 0 0 10px rgba(3, 173, 252, 0.8);
     }
   </style>
 </head>
 <body>
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+  
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-text">> Initializing Portfolio...</div>
+    <div class="loading-bar">
+      <div class="loading-progress"></div>
+    </div>
+  </div>
+
+  <!-- Neural Network Background -->
+  <canvas id="neural-canvas"></canvas>
+  
+  <!-- Particle Background -->
+  <div class="particles" id="particles"></div>
 
   <header>
     <h1>Jack Landers</h1>
@@ -243,12 +630,12 @@
     <section data-aos="fade-up">
       <h2>Papers</h2>      
         <ul>
-            <li><a href="Publications/EMT Vision Final Thesis.pdf" target="_blank"><strong>EMT Vision</strong> - First Responders have to collect patients’ information and diagnosis in an extremely stressful environment. We produced an application for the Microsoft Hololens 2 that combines computer vision, language processing, and artificial intelligence to effectively assist their mission</a></li>
-            <li><a href="Publications/Replicating the Visual Cortex.pdf" target="_blank">Replicating the Visual Cortex</a></li>
-            <li><a href="Publications/Computer Vision, Extended Reality, and the Next Evolution of Mobile Devices.pdf" target="_blank">Computer Vision, Extended Reality, and the Next Evolution of Mobile Devices</a></li>
-            <li><a href="Publications/Predicting Lifespan of Li-ion Batteries.pdf" target="_blank">Predicting Lifespan of Li-ion Batteries</a></li>
-            <li><a href="Publications/Modeling a BESS.pdf" target="_blank">Modeling a Battery Energy Storage System</a></li>
-            <li><a href="Publications/Eye Segmentation with Low-Level Vision Methods.pdf" target="_blank">Eye Segmentation with Low-Level Vision Methods</a></li>
+            <li class="paper-item" onclick="openPDF('Publications/EMT Vision Final Thesis.pdf')"><a href="Publications/EMT Vision Final Thesis.pdf" target="_blank" onclick="event.preventDefault();"><strong>EMT Vision</strong> - First Responders have to collect patients’ information and diagnosis in an extremely stressful environment. We produced an application for the Microsoft Hololens 2 that combines computer vision, language processing, and artificial intelligence to effectively assist their mission</a></li>
+            <li class="paper-item" onclick="openPDF('Publications/Replicating the Visual Cortex.pdf')"><a href="Publications/Replicating the Visual Cortex.pdf" target="_blank" onclick="event.preventDefault();">Replicating the Visual Cortex</a></li>
+            <li class="paper-item" onclick="openPDF('Publications/Computer Vision, Extended Reality, and the Next Evolution of Mobile Devices.pdf')"><a href="Publications/Computer Vision, Extended Reality, and the Next Evolution of Mobile Devices.pdf" target="_blank" onclick="event.preventDefault();">Computer Vision, Extended Reality, and the Next Evolution of Mobile Devices</a></li>
+            <li class="paper-item" onclick="openPDF('Publications/Predicting Lifespan of Li-ion Batteries.pdf')"><a href="Publications/Predicting Lifespan of Li-ion Batteries.pdf" target="_blank" onclick="event.preventDefault();">Predicting Lifespan of Li-ion Batteries</a></li>
+            <li class="paper-item" onclick="openPDF('Publications/Modeling a BESS.pdf')"><a href="Publications/Modeling a BESS.pdf" target="_blank" onclick="event.preventDefault();">Modeling a Battery Energy Storage System</a></li>
+            <li class="paper-item" onclick="openPDF('Publications/Eye Segmentation with Low-Level Vision Methods.pdf')"><a href="Publications/Eye Segmentation with Low-Level Vision Methods.pdf" target="_blank" onclick="event.preventDefault();">Eye Segmentation with Low-Level Vision Methods</a></li>
         </ul>
     </section>
     
@@ -268,7 +655,6 @@
       
       <div class="experience-entry">
         <a href="https://www.cagreatamerica.com/" target="_blank">
-          <img src="https://logowik.com/content/uploads/images/six-flags-2024-alternative82852.logowik.com.webp" alt="Six Flags Logo" class="hide-on-mobile">
         </a>
         <div>
           <p><strong>IT Service Technician</strong> - Six Flags (2025)</p>
@@ -279,7 +665,6 @@
       
       <div class="experience-entry">
         <a href="https://jacklanders.site/REALIST.html" target="_blank">
-          <img src="REALIST Logo.png" alt="REALIST Logo" class="hide-on-mobile">
         </a>
         <div>
           <p><strong>Contract Full-Stack Developer</strong> - REALIST (2024)</p>
@@ -290,6 +675,14 @@
     </section>
 
 
+  </div>
+  
+  <!-- PDF Modal -->
+  <div id="pdfModal" class="pdf-modal">
+    <span class="pdf-close" onclick="closePDF()">&times;</span>
+    <div class="pdf-modal-content">
+      <iframe id="pdfFrame" class="pdf-iframe"></iframe>
+    </div>
   </div>
   
   <footer>
@@ -307,13 +700,251 @@
   </footer>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
+    // Initialize AOS
     AOS.init({
-      duration: 2500, // animation duration in ms
-      once: true     // whether animation should happen only once
+      duration: 1200,
+      once: true,
+      offset: 100
     });
+    
+    // Loading Screen
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loadingScreen').style.display = 'none';
+      }, 2000);
+    });
+    
+    // PDF Modal Functions
+    function openPDF(pdfUrl) {
+      const modal = document.getElementById('pdfModal');
+      const iframe = document.getElementById('pdfFrame');
+      iframe.src = pdfUrl;
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closePDF() {
+      const modal = document.getElementById('pdfModal');
+      const iframe = document.getElementById('pdfFrame');
+      modal.style.display = 'none';
+      iframe.src = '';
+      document.body.style.overflow = 'auto';
+    }
+    
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('pdfModal');
+      if (event.target === modal) {
+        closePDF();
+      }
+    }
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closePDF();
+      }
+    });
+    
+    // Neural Network Canvas Animation
+    const canvas = document.getElementById('neural-canvas');
+    const ctx = canvas.getContext('2d');
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+    
+    class Node {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.radius = 3;
+      }
+      
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+      
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(3, 173, 252, 0.8)';
+        ctx.fill();
+      }
+    }
+    
+    const nodes = [];
+    const nodeCount = window.innerWidth > 768 ? 50 : 30;
+    
+    for (let i = 0; i < nodeCount; i++) {
+      nodes.push(new Node(
+        Math.random() * canvas.width,
+        Math.random() * canvas.height
+      ));
+    }
+    
+    function drawConnections() {
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 150) {
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.strokeStyle = `rgba(3, 173, 252, ${1 - distance / 150})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+    
+    function animateNeuralNetwork() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      drawConnections();
+      
+      nodes.forEach(node => {
+        node.update();
+        node.draw();
+      });
+      
+      requestAnimationFrame(animateNeuralNetwork);
+    }
+    
+    animateNeuralNetwork();
+    
+    // Particle Background
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = window.innerWidth > 768 ? 20 : 10;
+    
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.width = Math.random() * 5 + 2 + 'px';
+      particle.style.height = particle.style.width;
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = Math.random() * 100 + '%';
+      particle.style.animationDuration = Math.random() * 10 + 10 + 's';
+      particle.style.animationDelay = Math.random() * 5 + 's';
+      particlesContainer.appendChild(particle);
+    }
+    
+    // Smooth scroll enhancement
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    
+    // Add interactive cursor effect
+    let mouseX = 0;
+    let mouseY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      
+      // Create ripple effect on sections
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const distance = Math.sqrt(
+          Math.pow(mouseX - centerX, 2) + Math.pow(mouseY - centerY, 2)
+        );
+        
+        if (distance < 300) {
+          const intensity = 1 - distance / 300;
+          section.style.boxShadow = `0 ${8 + intensity * 20}px ${32 + intensity * 40}px rgba(3, 173, 252, ${0.2 + intensity * 0.3})`;
+        }
+      });
+    });
+    
+    // Add scroll progress indicator
+    window.addEventListener('scroll', () => {
+      const scrollProgress = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      const progressBar = document.getElementById('scrollProgress');
+      if (progressBar) {
+        progressBar.style.width = scrollProgress + '%';
+      }
+    });
+    
+    // Animate skill badges on scroll
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.skill-badge').forEach(badge => {
+      badge.style.opacity = '0';
+      badge.style.transform = 'translateY(20px)';
+      badge.style.transition = 'all 0.6s ease';
+      observer.observe(badge);
+    });
+    
+    // Add parallax effect to header
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      const header = document.querySelector('header');
+      if (header) {
+        header.style.transform = `translateY(${scrolled * 0.3}px)`;
+      }
+    });
+    
+    // Enhanced list item animations
+    document.querySelectorAll('ul li').forEach((item, index) => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateX(-20px)';
+      item.style.transition = `all 0.5s ease ${index * 0.05}s`;
+      
+      const itemObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateX(0)';
+            itemObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      itemObserver.observe(item);
+    });
+    
   </script>
 </body>
 </html>
+
 
 
 
