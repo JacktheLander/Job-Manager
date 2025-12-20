@@ -7,7 +7,7 @@
   <link rel="icon" href="astronaut (2).png" type="image/png">
   <link href='https://www.w3schools.com/w3css/5/w3.css' rel='stylesheet'>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <title>Jack Landers - ML Engineer</title>
+  <title>Jack Landers</title>
   <style>
     html {
       overflow-x: hidden;
@@ -27,7 +27,7 @@
       align-items: center;
       position: relative;
     }
-    
+
     /* Neural Network Background */
     #neural-canvas {
       position: fixed;
@@ -38,7 +38,7 @@
       z-index: 0;
       opacity: 0.4;
     }
-    
+
     /* Particle Background */
     .particles {
       position: fixed;
@@ -49,7 +49,7 @@
       z-index: 1;
       pointer-events: none;
     }
-    
+
     .particle {
       position: absolute;
       background: #03adfc;
@@ -57,19 +57,19 @@
       opacity: 0.6;
       animation: float 15s infinite ease-in-out;
     }
-    
+
     @keyframes float {
       0%, 100% { transform: translateY(0) translateX(0); }
       25% { transform: translateY(-100px) translateX(50px); }
       50% { transform: translateY(-50px) translateX(-50px); }
       75% { transform: translateY(-150px) translateX(100px); }
     }
-    
+
     header {
       background: rgba(15, 52, 96, 0.95);
       backdrop-filter: blur(10px);
       color: white;
-      padding: 40px 20px;
+      padding: 28px 20px;
       width: 100%;
       text-align: center;
       box-shadow: 0 4px 30px rgba(3, 173, 252, 0.3);
@@ -77,7 +77,7 @@
       z-index: 10;
       border-bottom: 2px solid #03adfc;
     }
-    
+
     header h1 {
       margin: 0;
       font-size: 3em;
@@ -88,23 +88,23 @@
       animation: glow 2s ease-in-out infinite alternate;
       transition: transform 0.3s ease-in-out;
     }
-    
+
     @keyframes glow {
       from { filter: drop-shadow(0 0 20px rgba(3, 173, 252, 0.5)); }
       to { filter: drop-shadow(0 0 40px rgba(0, 255, 136, 0.8)); }
     }
-    
+
     header p {
       color: #9ee0ff;
       font-size: 1.1em;
       margin-top: 10px;
     }
-    
+
     .container {
       position: relative;
       z-index: 5;
     }
-    
+
     section {
       margin: 30px;
       padding: 25px 30px;
@@ -118,7 +118,7 @@
       position: relative;
       overflow: hidden;
     }
-    
+
     section::before {
       content: '';
       position: absolute;
@@ -129,16 +129,16 @@
       background: linear-gradient(90deg, transparent, rgba(3, 173, 252, 0.1), transparent);
       transition: left 0.5s ease;
     }
-    
+
     section:hover::before {
       left: 100%;
     }
-    
+
     section:hover {
       transform: translateY(-5px);
       box-shadow: 0 12px 40px rgba(3, 173, 252, 0.4);
     }
-    
+
     h2 {
       color: #03adfc;
       letter-spacing: 1px;
@@ -148,7 +148,7 @@
       margin-bottom: 20px;
       transition: all 0.3s ease;
     }
-    
+
     h2::after {
       content: '';
       position: absolute;
@@ -159,33 +159,33 @@
       background: linear-gradient(90deg, #03adfc, #00ff88);
       transition: width 0.4s ease;
     }
-    
+
     h2:hover::after {
       width: 100%;
     }
-    
+
     h1:hover{
-        transform: scale(1.05); 
+        transform: scale(1.05);
     }
-    
+
     p{
-        transition: transform 0.2s ease-in-out; 
+        transition: transform 0.2s ease-in-out;
     }
     p:hover{
-        transform: scale(1.01); 
+        transform: scale(1.01);
     }
-    
+
     h2:hover{
         text-shadow: 2px 2px 10px rgba(3, 173, 252, 0.5);
         letter-spacing: 2px;
     }
-    
+
     /* Interactive List Items */
     ul {
       list-style: none;
       padding: 0;
     }
-    
+
     ul li {
       padding: 15px;
       background: linear-gradient(135deg, #f4f4f4 0%, #e8f4ff 100%);
@@ -197,7 +197,7 @@
       overflow: hidden;
       border-left: 4px solid transparent;
     }
-    
+
     ul li::before {
       content: '▸';
       position: absolute;
@@ -206,11 +206,11 @@
       font-size: 1.5em;
       transition: left 0.3s ease;
     }
-    
+
     ul li:hover::before {
       left: 10px;
     }
-    
+
     ul li a {
       text-decoration: none;
       display: block;
@@ -218,28 +218,28 @@
       padding-left: 25px;
       transition: padding-left 0.3s ease;
     }
-    
+
     ul li:hover {
       background: linear-gradient(135deg, #fff 0%, #e3f5ff 100%);
       transform: translateX(10px);
       box-shadow: 0 6px 25px rgba(3, 173, 252, 0.3);
       border-left-color: #03adfc;
     }
-    
+
     ul li:hover a {
       padding-left: 35px;
     }
-    
+
     ul li a:visited {
       color: #03adfc;
     }
-    
+
     /* Paper Items with Preview */
     .paper-item {
       position: relative;
       cursor: pointer;
     }
-    
+
     .paper-item::after {
       position: absolute;
       right: 15px;
@@ -253,11 +253,11 @@
       opacity: 0;
       transition: opacity 0.3s ease;
     }
-    
+
     .paper-item:hover::after {
       opacity: 1;
     }
-    
+
     .experience-entry {
       display: flex;
       align-items: center;
@@ -267,13 +267,13 @@
       border-radius: 12px;
       transition: all 0.4s ease;
     }
-    
+
     .experience-entry:hover {
       background: linear-gradient(135deg, rgba(3, 173, 252, 0.1) 0%, rgba(0, 255, 136, 0.1) 100%);
       transform: scale(1.02);
       box-shadow: 0 8px 25px rgba(3, 173, 252, 0.2);
     }
-    
+
     .experience-entry img {
       width: 60px;
       height: 60px;
@@ -281,15 +281,15 @@
       transition: transform 0.3s;
       filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
     }
-    
+
     .experience-entry a {
       display: inline-block;
     }
-    
+
     .experience-entry img:hover {
       transform: scale(1.2);
     }
-    
+
     footer {
       text-align: center;
       padding: 30px;
@@ -303,24 +303,24 @@
       z-index: 10;
       border-top: 2px solid #03adfc;
     }
-    
+
     .social-icons a {
       margin: 0 15px;
       display: inline-block;
     }
-    
+
     .social-icons img {
       width: 50px;
       height: 50px;
       transition: all 0.3s;
       filter: brightness(0) invert(1);
     }
-    
+
     .social-icons img:hover {
       transform: scale(1.3);
       filter: brightness(0) invert(1) drop-shadow(0 0 15px #03adfc);
     }
-    
+
     .about-container {
       display: flex;
       align-items: center;
@@ -328,7 +328,7 @@
       margin: 0 auto;
       box-sizing: border-box;
     }
-    
+
     .about-image {
       width: 180px;
       height: auto;
@@ -338,16 +338,16 @@
       box-shadow: 0 8px 25px rgba(3, 173, 252, 0.3);
       border: 3px solid #03adfc;
     }
-    
+
     .about-image:hover {
       transform: scale(1.1);
       box-shadow: 0 12px 40px rgba(3, 173, 252, 0.5);
     }
-    
+
     .about-text {
       flex: 1;
     }
-    
+
     /* PDF Modal */
     .pdf-modal {
       display: none;
@@ -360,15 +360,15 @@
       background: rgba(0, 0, 0, 0.95);
       animation: fadeIn 0.3s ease;
     }
-    
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    
+
     .pdf-modal-content {
       position: relative;
-      width: 90%;
+      width: 54%;
       height: 90%;
       margin: 2% auto;
       background: white;
@@ -376,7 +376,7 @@
       box-shadow: 0 0 50px rgba(3, 173, 252, 0.5);
       overflow: hidden;
     }
-    
+
     .pdf-close {
       position: absolute;
       top: 15px;
@@ -389,18 +389,18 @@
       transition: all 0.3s ease;
       text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
     }
-    
+
     .pdf-close:hover {
       color: #03adfc;
       transform: scale(1.2) rotate(90deg);
     }
-    
+
     .pdf-iframe {
       width: 100%;
       height: 100%;
       border: none;
     }
-    
+
     /* Skills Visualization */
     .skills-grid {
       display: grid;
@@ -408,7 +408,7 @@
       gap: 15px;
       margin: 20px 0;
     }
-    
+
     .skill-badge {
       background: linear-gradient(135deg, #03adfc 0%, #0080ff 100%);
       color: white;
@@ -420,13 +420,13 @@
       transition: all 0.3s ease;
       cursor: default;
     }
-    
+
     .skill-badge:hover {
       transform: translateY(-5px) scale(1.05);
       box-shadow: 0 8px 25px rgba(3, 173, 252, 0.5);
       background: linear-gradient(135deg, #00ff88 0%, #03adfc 100%);
     }
-    
+
     @media screen and (min-width: 768px) {
       .container {
         max-width: 900px;
@@ -434,7 +434,7 @@
         box-sizing: border-box;
       }
     }
-    
+
     @media (max-width: 768px) {
       .container {
           width: 100%;
@@ -451,16 +451,16 @@
         font-size: 2em;
       }
       .pdf-modal-content {
-        width: 95%;
+        width: 57%;
         height: 85%;
       }
     }
-    
+
     iframe, video{
       max-width: 100%;
       height: 100%;
     }
-    
+
     .calendar-button {
       display: inline-block;
       padding: 15px 30px;
@@ -477,7 +477,7 @@
       position: relative;
       overflow: hidden;
     }
-    
+
     .calendar-button::before {
       content: '';
       position: absolute;
@@ -490,7 +490,7 @@
       transform: translate(-50%, -50%);
       transition: width 0.6s, height 0.6s;
     }
-    
+
     .calendar-button:hover::before {
       width: 300px;
       height: 300px;
@@ -500,7 +500,7 @@
       transform: scale(1.1);
       box-shadow: 0 10px 30px rgba(3, 173, 252, 0.6);
     }
-    
+
     /* Loading Animation */
     .loading-screen {
       position: fixed;
@@ -515,7 +515,7 @@
       align-items: center;
       flex-direction: column;
     }
-    
+
     .loading-text {
       color: #03adfc;
       font-size: 2em;
@@ -523,12 +523,12 @@
       margin-bottom: 20px;
       animation: pulse 1.5s ease-in-out infinite;
     }
-    
+
     @keyframes pulse {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.5; }
     }
-    
+
     .loading-bar {
       width: 300px;
       height: 4px;
@@ -536,18 +536,18 @@
       border-radius: 2px;
       overflow: hidden;
     }
-    
+
     .loading-progress {
       width: 0;
       height: 100%;
       background: linear-gradient(90deg, #03adfc, #00ff88);
       animation: loading 2s ease-in-out forwards;
     }
-    
+
     @keyframes loading {
       to { width: 100%; }
     }
-    
+
     /* Scroll Progress Bar */
     .scroll-progress {
       position: fixed;
@@ -560,12 +560,77 @@
       transition: width 0.1s ease;
       box-shadow: 0 0 10px rgba(3, 173, 252, 0.8);
     }
+    
+    /* Show More Button */
+    .show-more-btn {
+      display: block;
+      margin: 15px auto 10px;
+      padding: 10px 25px;
+      background: linear-gradient(135deg, #03adfc 0%, #0080ff 100%);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 0.95em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(3, 173, 252, 0.3);
+      text-align: center;
+    }
+    
+    .show-more-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(3, 173, 252, 0.5);
+      background: linear-gradient(135deg, #00ff88 0%, #03adfc 100%);
+    }
+    
+    .show-more-btn:active {
+      transform: translateY(0);
+    }
+    
+    .show-more-btn::after {
+      content: ' ▼';
+      font-size: 0.8em;
+      margin-left: 5px;
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+    
+    .show-more-btn.expanded::after {
+      transform: rotate(180deg);
+    }
+    
+    .collapsible-item {
+      display: none;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    
+    .collapsible-item.show {
+      display: list-item;
+      opacity: 1;
+      max-height: 500px;
+      animation: slideDown 0.4s ease;
+    }
+    
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Scroll Progress Bar -->
   <div class="scroll-progress" id="scrollProgress"></div>
-  
+
   <!-- Loading Screen -->
   <div class="loading-screen" id="loadingScreen">
     <div class="loading-text">> Initializing Portfolio...</div>
@@ -576,7 +641,7 @@
 
   <!-- Neural Network Background -->
   <canvas id="neural-canvas"></canvas>
-  
+
   <!-- Particle Background -->
   <div class="particles" id="particles"></div>
 
@@ -586,7 +651,7 @@
   </header>
 
   <div class="container">
-    
+
     <section>
       <h2>About Me</h2>
       <div class="about-container">
@@ -614,34 +679,48 @@
         </div>
       </div>
 
-        <ul>
+        <ul id="education-list">
             <li><a href="https://github.com/JacktheLander/School-Lab-Projects/tree/main/Machine-Learning" target="_blank"><strong>Machine Learning</strong> - Statistical learning and model tuning using sk-learn and TensorFlow</a></li>
             <li><a href="https://github.com/JacktheLander/School-Lab-Projects/tree/main/Neuromorphic-Computing" target="_blank"><strong>Neuromorphic Computing</strong> - Artificial Neural Networks and Reservoir Computing</a></li>
             <li><a href="https://github.com/JacktheLander/School-Lab-Projects/tree/main/Battery-Energy-Storage-Systems" target="_blank"><strong>Energy Storage Systems</strong> - Intelligent management of storage for electrical grid infrastructure</a></li>
-            <li><a href="https://github.com/JacktheLander/School-Lab-Projects/tree/main/Digital-Signal-Processing" target="_blank"><strong>Digital Signal Processing</strong> - Frequency analysis and filter design in Matlab</a></li>
-            <li><a href="https://github.com/JacktheLander/School-Lab-Projects/tree/main/Logic-Design" target="_blank"><strong>Advanced Logic Design</strong> - Control of datapath elements for state machines design in Verilog</a></li>
-            <li><a href="https://github.com/JacktheLander/School-Lab-Projects/tree/main/Networking-and-Communications" target="_blank"><strong>Communications and Networking</strong> - Matlab signal encoding with modulation and multiplexing</a></li>
-            <li><a href="https://github.com/JacktheLander/School-Lab-Projects/tree/main/Embedded-Systems" target="_blank"><strong>Real Time Embedded Systems</strong> - Concurrent threads to a microcontroller using Assembly</a></li>
-            <li><a href="https://github.com/JacktheLander/School-Lab-Projects/tree/main/Computational-Architecture" target="_blank"><strong>Computational Architectures</strong> - Pipelining, cache, and virtual memory design with Xilinx Vivado</a></li>
-            <li><a href="https://github.com/JacktheLander/School-Lab-Projects/tree/main/Operating%20Systems" target="_blank"><strong>Operating Systems</strong> - Process management, memory allocation, and performance evaluation</a></li>
+            <li class="collapsible-item"><a href="https://github.com/JacktheLander/School-Lab-Projects/tree/main/Digital-Signal-Processing" target="_blank"><strong>Digital Signal Processing</strong> - Frequency analysis and filter design in Matlab</a></li>
+            <li class="collapsible-item"><a href="https://github.com/JacktheLander/School-Lab-Projects/tree/main/Logic-Design" target="_blank"><strong>Advanced Logic Design</strong> - Control of datapath elements for state machines design in Verilog</a></li>
+            <li class="collapsible-item"><a href="https://github.com/JacktheLander/School-Lab-Projects/tree/main/Networking-and-Communications" target="_blank"><strong>Communications and Networking</strong> - Matlab signal encoding with modulation and multiplexing</a></li>
+            <li class="collapsible-item"><a href="https://github.com/JacktheLander/School-Lab-Projects/tree/main/Embedded-Systems" target="_blank"><strong>Real Time Embedded Systems</strong> - Concurrent threads to a microcontroller using Assembly</a></li>
+            <li class="collapsible-item"><a href="https://github.com/JacktheLander/School-Lab-Projects/tree/main/Computational-Architecture" target="_blank"><strong>Computational Architectures</strong> - Pipelining, cache, and virtual memory design with Xilinx Vivado</a></li>
+            <li class="collapsible-item"><a href="https://github.com/JacktheLander/School-Lab-Projects/tree/main/Operating%20Systems" target="_blank"><strong>Operating Systems</strong> - Process management, memory allocation, and performance evaluation</a></li>
         </ul>
+        <button class="show-more-btn" onclick="toggleSection('education-list', this)">Show More</button>
     </section>
-      
+
     <section data-aos="fade-up">
-      <h2>Papers</h2>      
-        <ul>
+      <h2>Papers</h2>
+        <ul id="papers-list">
             <li class="paper-item" onclick="openPDF('Publications/EMT Vision Final Thesis.pdf')"><a href="Publications/EMT Vision Final Thesis.pdf" target="_blank" onclick="event.preventDefault();"><strong>EMT Vision</strong> - First Responders have to collect patients’ information and diagnosis in an extremely stressful environment. We produced an application for the Microsoft Hololens 2 that combines computer vision, language processing, and artificial intelligence to effectively assist their mission</a></li>
             <li class="paper-item" onclick="openPDF('Publications/Replicating the Visual Cortex.pdf')"><a href="Publications/Replicating the Visual Cortex.pdf" target="_blank" onclick="event.preventDefault();">Replicating the Visual Cortex</a></li>
             <li class="paper-item" onclick="openPDF('Publications/Computer Vision, Extended Reality, and the Next Evolution of Mobile Devices.pdf')"><a href="Publications/Computer Vision, Extended Reality, and the Next Evolution of Mobile Devices.pdf" target="_blank" onclick="event.preventDefault();">Computer Vision, Extended Reality, and the Next Evolution of Mobile Devices</a></li>
-            <li class="paper-item" onclick="openPDF('Publications/Predicting Lifespan of Li-ion Batteries.pdf')"><a href="Publications/Predicting Lifespan of Li-ion Batteries.pdf" target="_blank" onclick="event.preventDefault();">Predicting Lifespan of Li-ion Batteries</a></li>
-            <li class="paper-item" onclick="openPDF('Publications/Modeling a BESS.pdf')"><a href="Publications/Modeling a BESS.pdf" target="_blank" onclick="event.preventDefault();">Modeling a Battery Energy Storage System</a></li>
-            <li class="paper-item" onclick="openPDF('Publications/Eye Segmentation with Low-Level Vision Methods.pdf')"><a href="Publications/Eye Segmentation with Low-Level Vision Methods.pdf" target="_blank" onclick="event.preventDefault();">Eye Segmentation with Low-Level Vision Methods</a></li>
+            <li class="paper-item collapsible-item" onclick="openPDF('Publications/Predicting Lifespan of Li-ion Batteries.pdf')"><a href="Publications/Predicting Lifespan of Li-ion Batteries.pdf" target="_blank" onclick="event.preventDefault();">Predicting Lifespan of Li-ion Batteries</a></li>
+            <li class="paper-item collapsible-item" onclick="openPDF('Publications/Modeling a BESS.pdf')"><a href="Publications/Modeling a BESS.pdf" target="_blank" onclick="event.preventDefault();">Modeling a Battery Energy Storage System</a></li>
+            <li class="paper-item collapsible-item" onclick="openPDF('Publications/Eye Segmentation with Low-Level Vision Methods.pdf')"><a href="Publications/Eye Segmentation with Low-Level Vision Methods.pdf" target="_blank" onclick="event.preventDefault();">Eye Segmentation with Low-Level Vision Methods</a></li>
         </ul>
+        <button class="show-more-btn" onclick="toggleSection('papers-list', this)">Show More</button>
     </section>
-     
+
+    <section data-aos="fade-up">
+      <h2>Additional Learning</h2>
+        <ul id="learning-list">
+            <li><a href="https://coursera.org/verify/ABHCWBL9SUC3" target="_blank">3D Reconstruction from Multiple Viewpoints</a></li>
+            <li><a href="https://devpost.com/software/firewire" target="_blank">Implementing AI in a real time communication system utilizing AWS Bedrock</a></li>
+            <li><a href="https://github.com/JacktheLander/Agentic-Communication-Protocol" target="_blank">Server hoster RAG pipeline using collaborative AI agents</a></li>
+            <li class="collapsible-item"><a href="https://github.com/JacktheLander/Computer-Vision-Projects/tree/main/OpenCV" target="_blank">Facial Recognition applying Haar Cascade Classifiers and OpenCV</a></li>
+            <li class="collapsible-item"><a href="https://github.com/JacktheLander/Computer-Vision-Projects/tree/main/YOLO" target="_blank">Object Detection using YOLO with NVIDIA CUDA optimization</a></li>
+        </ul>
+        <button class="show-more-btn" onclick="toggleSection('learning-list', this)">Show More</button>
+    </section>
+
     <section data-aos="fade-up">
       <h2>Work Experience</h2>
-      
+
       <div class="experience-entry">
         <a href="https://www.cagreatamerica.com/" target="_blank">
         </a>
@@ -651,7 +730,7 @@
           </p>
         </div>
       </div>
-      
+
       <div class="experience-entry">
         <a href="https://jacklanders.site/REALIST.html" target="_blank">
         </a>
@@ -662,20 +741,10 @@
         </div>
       </div>
     </section>
-    
-    <section data-aos="fade-up">
-      <h2>Additional Learning</h2>
-        <ul>
-            <li><a href="https://coursera.org/verify/ABHCWBL9SUC3" target="_blank">3D Reconstruction from Multiple Viewpoints</a></li>
-            <li><a href="https://devpost.com/software/firewire" target="_blank">Implementing AI in a real time communication system utilizing AWS Bedrock</a></li>
-            <li><a href="https://github.com/JacktheLander/Agentic-Communication-Protocol" target="_blank">Server hoster RAG pipeline using collaborative AI agents</a></li>
-            <li><a href="https://github.com/JacktheLander/Computer-Vision-Projects/tree/main/OpenCV" target="_blank">Facial Recognition applying Haar Cascade Classifiers and OpenCV</a></li>
-            <li><a href="https://github.com/JacktheLander/Computer-Vision-Projects/tree/main/YOLO" target="_blank">Object Detection using YOLO with NVIDIA CUDA optimization</a></li>
-        </ul>
-    </section>
+
 
   </div>
-  
+
   <!-- PDF Modal -->
   <div id="pdfModal" class="pdf-modal">
     <span class="pdf-close" onclick="closePDF()">&times;</span>
@@ -683,7 +752,7 @@
       <iframe id="pdfFrame" class="pdf-iframe"></iframe>
     </div>
   </div>
-  
+
   <footer>
     <div class="social-icons">
       <a href="https://www.linkedin.com/in/jacklanders/" target="_blank">
@@ -705,14 +774,14 @@
       once: true,
       offset: 100
     });
-    
+
     // Loading Screen
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.getElementById('loadingScreen').style.display = 'none';
       }, 2000);
     });
-    
+
     // PDF Modal Functions
     function openPDF(pdfUrl) {
       const modal = document.getElementById('pdfModal');
@@ -730,6 +799,29 @@
       document.body.style.overflow = 'auto';
     }
     
+    // Toggle Section Function
+    function toggleSection(listId, button) {
+      const list = document.getElementById(listId);
+      const collapsibleItems = list.querySelectorAll('.collapsible-item');
+      const isExpanded = button.classList.contains('expanded');
+      
+      if (isExpanded) {
+        // Collapse
+        collapsibleItems.forEach(item => {
+          item.classList.remove('show');
+        });
+        button.classList.remove('expanded');
+        button.textContent = 'Show More';
+      } else {
+        // Expand
+        collapsibleItems.forEach(item => {
+          item.classList.add('show');
+        });
+        button.classList.add('expanded');
+        button.textContent = 'Show Less';
+      }
+    }
+
     // Close modal when clicking outside
     window.onclick = function(event) {
       const modal = document.getElementById('pdfModal');
@@ -737,26 +829,26 @@
         closePDF();
       }
     }
-    
+
     // Close modal with Escape key
     document.addEventListener('keydown', function(event) {
       if (event.key === 'Escape') {
         closePDF();
       }
     });
-    
+
     // Neural Network Canvas Animation
     const canvas = document.getElementById('neural-canvas');
     const ctx = canvas.getContext('2d');
-    
+
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    
+
     window.addEventListener('resize', () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     });
-    
+
     class Node {
       constructor(x, y) {
         this.x = x;
@@ -765,15 +857,15 @@
         this.vy = (Math.random() - 0.5) * 0.5;
         this.radius = 3;
       }
-      
+
       update() {
         this.x += this.vx;
         this.y += this.vy;
-        
+
         if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
         if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
       }
-      
+
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
@@ -781,24 +873,24 @@
         ctx.fill();
       }
     }
-    
+
     const nodes = [];
     const nodeCount = window.innerWidth > 768 ? 50 : 30;
-    
+
     for (let i = 0; i < nodeCount; i++) {
       nodes.push(new Node(
         Math.random() * canvas.width,
         Math.random() * canvas.height
       ));
     }
-    
+
     function drawConnections() {
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
           const dy = nodes[i].y - nodes[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
-          
+
           if (distance < 150) {
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
@@ -810,26 +902,26 @@
         }
       }
     }
-    
+
     function animateNeuralNetwork() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       drawConnections();
-      
+
       nodes.forEach(node => {
         node.update();
         node.draw();
       });
-      
+
       requestAnimationFrame(animateNeuralNetwork);
     }
-    
+
     animateNeuralNetwork();
-    
+
     // Particle Background
     const particlesContainer = document.getElementById('particles');
     const particleCount = window.innerWidth > 768 ? 20 : 10;
-    
+
     for (let i = 0; i < particleCount; i++) {
       const particle = document.createElement('div');
       particle.className = 'particle';
@@ -841,7 +933,7 @@
       particle.style.animationDelay = Math.random() * 5 + 's';
       particlesContainer.appendChild(particle);
     }
-    
+
     // Smooth scroll enhancement
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -855,15 +947,15 @@
         }
       });
     });
-    
+
     // Add interactive cursor effect
     let mouseX = 0;
     let mouseY = 0;
-    
+
     document.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-      
+
       // Create ripple effect on sections
       const sections = document.querySelectorAll('section');
       sections.forEach(section => {
@@ -873,14 +965,14 @@
         const distance = Math.sqrt(
           Math.pow(mouseX - centerX, 2) + Math.pow(mouseY - centerY, 2)
         );
-        
+
         if (distance < 300) {
           const intensity = 1 - distance / 300;
           section.style.boxShadow = `0 ${8 + intensity * 20}px ${32 + intensity * 40}px rgba(3, 173, 252, ${0.2 + intensity * 0.3})`;
         }
       });
     });
-    
+
     // Add scroll progress indicator
     window.addEventListener('scroll', () => {
       const scrollProgress = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
@@ -889,13 +981,13 @@
         progressBar.style.width = scrollProgress + '%';
       }
     });
-    
+
     // Animate skill badges on scroll
     const observerOptions = {
       threshold: 0.3,
       rootMargin: '0px 0px -100px 0px'
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -904,14 +996,14 @@
         }
       });
     }, observerOptions);
-    
+
     document.querySelectorAll('.skill-badge').forEach(badge => {
       badge.style.opacity = '0';
       badge.style.transform = 'translateY(20px)';
       badge.style.transition = 'all 0.6s ease';
       observer.observe(badge);
     });
-    
+
     // Add parallax effect to header
     window.addEventListener('scroll', () => {
       const scrolled = window.scrollY;
@@ -920,13 +1012,13 @@
         header.style.transform = `translateY(${scrolled * 0.3}px)`;
       }
     });
-    
+
     // Enhanced list item animations
     document.querySelectorAll('ul li').forEach((item, index) => {
       item.style.opacity = '0';
       item.style.transform = 'translateX(-20px)';
       item.style.transition = `all 0.5s ease ${index * 0.05}s`;
-      
+
       const itemObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -936,15 +1028,13 @@
           }
         });
       }, { threshold: 0.1 });
-      
+
       itemObserver.observe(item);
     });
-    
+
   </script>
 </body>
 </html>
-
-
 
 
 
